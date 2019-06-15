@@ -117,7 +117,7 @@ void sendToThingspeak(float t, float h, int is_raining, int light)
 
   int response = ThingSpeak.writeFields(THINGSPEAK_CHANNEL, THINGSPEAK_WRITE_APIKEY);
   if(response == 200){
-    Serial.println("Channel updated successful.");
+    Serial.println("Channel updated successfully");
   }
   else{
     Serial.println("Problem updating channel. HTTP error code " + String(response));
@@ -149,7 +149,7 @@ void loop()
     delay(5000); //Waiting for DHT to start
   }else{
     sendToThingspeak(t,h,0,light);
-    delay(30000);
+    delay(5*1000*60); // Sleep for 5min
   }
 
   
